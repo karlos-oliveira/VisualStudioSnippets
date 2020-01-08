@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Gerador Interface Service CRUD</Title>
+            <Author>Carlos Oliveira</Author>
+            <Description>Gera a Interface para o IService CRUD Model</Description>
+            <Shortcut>iserv</Shortcut>
+        </Header>
+        <Snippet>
+        <Code Language="CSharp" Type="file">
+            <![CDATA[
+                namespace Services
+                {                   
+                    public interface I$Model$Service
+                    {
+                        void Criar$Model$($Model$ inputs);
+                        $Model$ Consultar$Model$(Guid Id$Model$);
+                        List<$Model$> Consultar$Model$s();
+                        void Editar$Model$($Model$ inputs);
+                        void Deletar$Model$(Guid Id$Model$);
+                    }
+                }
+            ]]>
+        </Code>
+        <Imports>
+            <Import>
+                <Namespace>System</Namespace>
+            </Import>
+            <Import>
+                <Namespace>System.Collections.Generic</Namespace>
+            </Import>
+            <Import>
+                <Namespace>Models</Namespace>
+            </Import>
+        </Imports>
+        <Declarations>
+            <Literal>
+            <ID>Model</ID>
+            <ToolTip>Nome da model para qual quer criar a Interface Service</ToolTip>
+            <Default>NomeModel</Default>
+            </Literal>
+        </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
+
+

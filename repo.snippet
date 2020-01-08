@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Gerador Classe Repository CRUD</Title>
+            <Author>Carlos Oliveira</Author>
+            <Description>Gera a Classe para o Repository CRUD Model</Description>
+            <Shortcut>repo</Shortcut>
+        </Header>
+        <Snippet>
+        <Code Language="CSharp" Type="file">
+            <![CDATA[
+                namespace Infra.Data.Repository
+                {
+                    public class $Model$Repository : I$Model$Repository
+                    {
+                        private readonly IContext _context;
+
+                        public $Model$Repository(IContext context)
+                        {
+                            _context = context;
+                        }
+
+                        public $Model$ Consultar$Model$(Guid Id$Model$)
+                        {
+                            return _context.$Model$.Where(x => x.Id$Model$ == Id$Model$).First();
+                        }
+
+                        public List<$Model$> Consultar$Model$s()
+                        {
+                            //return _context.$Model$.Where(x => x.IsAtivo).ToList();
+                            return _context.$Model$.ToList();
+                        }
+
+                        public void Criar$Model$($Model$ inputs)
+                        {
+                            _context.$Model$.Add(inputs);
+                            _context.Commit();
+                        }
+
+                        public void Deletar$Model$(Guid Id$Model$)
+                        {
+                            //_context.$Model$.Find(Id$Model$).IsAtivo = false;
+                            _context.$Model$.Remove(_context.$Model$.Find(Id$Model$));
+                            _context.Commit();
+                        }
+
+                        public void Editar$Model$($Model$ inputs)
+                        {
+                            _context.$Model$.Update(inputs);
+                            _context.Commit();
+                        }
+                    }
+                }
+            ]]>
+        </Code>
+        <Imports>
+            <Import>
+                <Namespace>System</Namespace>
+            </Import>
+            <Import>
+                <Namespace>System.Linq</Namespace>
+            </Import>
+            <Import>
+                <Namespace>System.Collections.Generic</Namespace>
+            </Import>
+            <Import>
+                <Namespace>Shared</Namespace>
+            </Import>
+            <Import>
+                <Namespace>Models</Namespace>
+            </Import>
+        </Imports>
+        <Declarations>
+            <Literal>
+            <ID>Model</ID>
+            <ToolTip>Nome da model para qual quer criar a Classe Repository</ToolTip>
+            <Default>NomeModel</Default>
+            </Literal>
+        </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
+
+

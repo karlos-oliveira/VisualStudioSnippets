@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Gerador classe controller CRUD</Title>
+            <Author>Carlos Oliveira</Author>
+            <Description>Gera a classe controller CRUD Model</Description>
+            <Shortcut>ctrl</Shortcut>
+        </Header>
+        <Snippet>
+        <Code Language="CSharp" Type="file" Delimiter="@">
+            <![CDATA[
+                namespace Controllers
+                {
+                    [Route("api/v1/@Model@")]
+                    [ApiController]
+                    public class @Model@Controller : ControllerBase
+                    {
+                        private readonly I@Model@Service _serv;
+
+                        public @Model@Controller(I@Model@Service serv)
+                        {
+                            _serv = serv;
+                        }
+
+                        [HttpPost]
+                        public ActionResult Criar@Model@([FromBody] @Model@ inputs)
+                        {
+                            try
+                            {
+                                inputs.Id@Model@ = Guid.NewGuid();
+
+                                _serv.Criar@Model@(inputs);
+
+                                return Ok();
+                            }
+                            catch (Exception ex)
+                            {
+                                return BadRequest($"Ocorreu um erro ao criar um novo @Model@: {ex.Message}");
+                            }
+                        
+                        }
+
+                        [HttpGet]
+                        [Route("{id@Model@}")]
+                        public ActionResult Consultar@Model@([FromRoute] Guid Id@Model@)
+                        {
+                            try
+                            {
+                                var response = _serv.Consultar@Model@(Id@Model@);
+
+                                return Ok(response);
+                            }
+                            catch (Exception ex)
+                            {
+                                return BadRequest($"Ocorreu um erro ao consultar o @Model@ {Id@Model@}: {ex.Message}");
+                            }
+                        }
+
+                        [HttpGet]
+                        public ActionResult Consultar@Model@s()
+                        {
+                            try
+                            {
+                                var response = _serv.Consultar@Model@s();
+
+                                return Ok(response);
+                            }
+                            catch (Exception ex)
+                            {
+                                return BadRequest($"Ocorreu um erro ao listar @Model@s: {ex.Message}");
+                            }
+                        }
+
+                        [HttpPut]
+                        public ActionResult Editar@Model@([FromBody] @Model@ inputs)
+                        {
+                            try
+                            {
+                                _serv.Editar@Model@(inputs);
+
+                                return Ok();
+                            }
+                            catch (Exception ex)
+                            {
+                                return BadRequest($"Ocorreu um erro ao editar o @Model@ {inputs.Id@Model@}: {ex.Message}");
+                            }
+                        }
+
+                        [HttpDelete]
+                        [Route("{id@Model@}")]
+                        public ActionResult Deletar@Model@([FromRoute] Guid Id@Model@)
+                        {
+                            try
+                            {
+                                _serv.Deletar@Model@(Id@Model@);
+
+                                return Ok();
+                            }
+                            catch (Exception ex)
+                            {
+                                return BadRequest($"Ocorreu um erro ao deletar o @Model@ {Id@Model@}: {ex.Message}");
+                            }
+                        }
+                    }
+                }
+            ]]>
+        </Code>
+        <Imports>
+            <Import>
+                <Namespace>Models</Namespace>
+            </Import>
+            <Import>
+                <Namespace>Services</Namespace>
+            </Import>
+            <Import>
+                <Namespace>System</Namespace>
+            </Import>
+            <Import>
+                <Namespace>Microsoft.AspNetCore.Mvc</Namespace>
+            </Import>
+        </Imports>
+        <Declarations>
+            <Literal>
+            <ID>Model</ID>
+            <ToolTip>Nome da model para qual quer criar a Controller</ToolTip>
+            <Default>NomeModel</Default>
+            </Literal>
+        </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
+
+

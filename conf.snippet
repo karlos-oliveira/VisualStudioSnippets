@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Gerador Configs</Title>
+            <Author>Carlos Oliveira</Author>
+            <Description>Gera os Configs do EF para determinada Model</Description>
+            <Shortcut>conf</Shortcut>
+        </Header>
+        <Snippet>
+        <Code Language="CSharp" Type="file">
+        <![CDATA[
+            namespace Infra.Data.Configuration
+            {
+                public class $Model$Configuration : IEntityTypeConfiguration<$Model$>
+                {
+                    public void Configure(EntityTypeBuilder<$Model$> builder)
+                    {
+                        builder.ToTable("$Model$");
+
+                        builder.Property(x => x.Id$Model$);
+
+                        builder.HasKey(x => x.Id$Model$);
+                    }
+                }
+            }
+        ]]>
+        </Code>
+        <Imports>
+            <Import>
+                <Namespace>Microsoft.EntityFrameworkCore</Namespace>
+            </Import>
+            <Import>
+                <Namespace>Microsoft.EntityFrameworkCore.Metadata.Builders</Namespace>
+            </Import>
+            <Import>
+                <Namespace>Models</Namespace>
+            </Import>
+        </Imports>
+        <Declarations>
+            <Literal>
+                <ID>Model</ID>
+                <ToolTip>Nome da model para qual quer criar a configuração</ToolTip>
+                <Default>NomeModel</Default>
+            </Literal>
+        </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
+
+
