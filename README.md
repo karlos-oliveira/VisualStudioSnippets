@@ -2,46 +2,60 @@
 
 Criei estes snippets para auxiliar na criação de novos microserviços (utilizando EFCore, FluentApi, etc) que seguem sempre a mesma estrutura, eles obedecem a arquitetura da empresa que trabalho portanto não são tão genéricos e os namespaces seguem uma hierarquia de pastas definidas, mas ainda assim acredito que possa ajudar alguem.
 
-conf
+##Instalação
+
+Para "instalar" os snippets no Visua Studio bastaseguir os passos abaixo:
+
+1. Baixar os arquivos deste repositório
+2. Abrir o Visual Studio
+3. Ir na aba "Ferramentas"
+4. clicar no item "Gerenciador de Snippets de código"
+5. Clicar no botão "Importar"
+6. Selecionar os arquivos .snippet e clicar em "Abrir"
+7. Clicar no botão "Concluir" e depois no botão "Ok"
+
+##Atalhos
+
+**conf**
 
 Gera a estrutura de configuração de mapeamento do EF para determinada Model
 
-irepo
+**irepo**
 
 Gera as interfaces Repository para um CRUD de determinada Model
 
-repo
+**repo**
 
 Gera as classes Repository para um CRUD de determinada Model
 
-repofull
+**repofull**
 
 Gera a classe e interface Repository em um mesmo arquivo com métodos CRUD de determinada Model
 
-iserv
+**iserv**
 
 Gera as interfaces Service para um CRUD de determinada Model
 
-serv
+**serv**
 
 Gera as classes Service para um CRUD de determinada Model
 
-servfull
+**servfull**
 
 Gera a classe e interface Service em um mesmo arquivo com métodos CRUD de determinada Model
 
-dbs
+**dbs**
 
 Auxilia na criação de propriedades DBSet na classe DBContext
 
-tserv
+**tserv**
 
 Auxilia na injeção de dependencia do Service no metodo Configuration da classe Stautup
 
-trepo
+**trepo**
 
 Auxilia na injeção de dependencia do Repository no metodo Configuration da classe Stautup
 
-ctrl
+**ctrl**
 
 Gera a controller com as rotas de CRUD para determinada model
