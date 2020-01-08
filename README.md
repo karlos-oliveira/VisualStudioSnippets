@@ -2,7 +2,7 @@
 
 Criei estes snippets para auxiliar na criação de novos microserviços (utilizando EFCore, FluentApi, etc) que seguem sempre a mesma estrutura, eles obedecem a arquitetura da empresa que trabalho portanto não são tão genéricos e os namespaces seguem uma hierarquia de pastas definidas, mas ainda assim acredito que possa ajudar alguem.
 
-##Instalação
+## Instalação
 
 Para "instalar" os snippets no Visua Studio bastaseguir os passos abaixo:
 
@@ -14,7 +14,7 @@ Para "instalar" os snippets no Visua Studio bastaseguir os passos abaixo:
 6. Selecionar os arquivos .snippet e clicar em "Abrir"
 7. Clicar no botão "Concluir" e depois no botão "Ok"
 
-##Atalhos
+## Atalhos
 
 **conf**
 
