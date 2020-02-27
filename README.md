@@ -4,7 +4,7 @@ Criei estes snippets para auxiliar na criação de novos microserviços (utiliza
 
 ## Instalação
 
-Para "instalar" os snippets no Visua Studio bastaseguir os passos abaixo:
+Para "instalar" os snippets no Visual Studio basta seguir os passos abaixo:
 
 1. Baixar os arquivos deste repositório
 2. Abrir o Visual Studio
